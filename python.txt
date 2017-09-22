@@ -1,0 +1,9 @@
+nano extention.py
+
+m=[[1,2],[2,3][3,4]]
+for r in m:
+  print (r)
+print("\n")
+t_m = zip(*m):
+  for p in t_m
+print (t_m)

@@ -1,0 +1,47 @@
+********** Install Ansible on Ubuntu **************
+
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+
+************* Set Up SSH Keys **************
+
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa.pub
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+cd ~/.ssh
+nano id_rsa.pub
+chmod 644 id_rsa.pub
+cat ~/.ssh/id_rsa
+
+***********  Configuring Ansible Hosts ********************
+sudo nano /etc/ansible/hosts
+
+[group_name]
+alias ansible_ssh_host=your_server_ip
+
+ssh root@your_server_ip
+
+****** Example **********
+
+[droplets]
+host1 ansible_ssh_host=192.0.2.1
+host2 ansible_ssh_host=192.0.2.2
+host3 ansible_ssh_host=192.0.2.3
+
+********* Using Simple Ansible Commands **************
+
+ansible -m ping all
+
+ansible -m ping droplets
+
+ansible -m ping host1
+
+ansible -m ping host1:host2
+
+ansible -m shell -a 'free -m' host1
+

@@ -1,0 +1,56 @@
+#! /bin/bash
+yum update -y
+yum install httpd -y
+/etc/init.d/httpd start
+touch /var/www/html/index.html
+echo "WELCOME TO DANGER ZONE !!!!" >> /var/www/html/index.html
+
+
+#!/bin/bash
+yum update -y
+yum install -y httpd24 php56 mysql55-server php56-mysqlnd
+service httpd start
+chkconfig httpd on
+groupadd www
+usermod -a -G www ec2-user
+chown -R root:www /var/www
+chmod 2775 /var/www
+find /var/www -type d -exec chmod 2775 {} +
+find /var/www -type f -exec chmod 0664 {} +
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+
+Refer this this link for Running Commands on Your Linux Instance at Launch
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
+
+#cloud-config
+repo_update: true
+repo_upgrade: all
+
+packages:
+ - httpd24
+ - php56
+ - mysql55-server
+ - php56-mysqlnd
+
+runcmd:
+ - service httpd start
+ - chkconfig httpd on
+ - groupadd www
+ - [ sh, -c, "usermod -a -G www ec2-user" ]
+ - [ sh, -c, "chown -R root:www /var/www" ]
+ - chmod 2775 /var/www
+ - [ find, /var/www, -type, d, -exec, chmod, 2775, {}, + ]
+ - [ find, /var/www, -type, f, -exec, chmod, 0664, {}, + ]
+ - [ sh, -c, 'echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php' ]
+
+#!/bin/bash
+sudo su
+yum install httpd -y
+yum update -y
+service httpd start
+chkconfig httpd on
+echo "<html><h1>YOU HAVE MADE IT ? ? ? !</h1></html>" > /var/www/html/index.html
+sudo sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
+sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sudo service sshd restart
+sudo echo 'root:password' | chpasswd

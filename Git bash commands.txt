@@ -1,0 +1,240 @@
+SERVERE 1 ------SERVER 2
+SSH @IP ADDRESS
+PERMIT ROOT IS ENABLED (DEFAULTLY)
+
+github
+source forge
+aws code commit	
+bit bucket
+
+git --version
+git config
+git config --list --show-origin
+cat .gitconfig
+
+git config --global user.email 
+git config --global user.skypeid
+
+git clone https://github.com/lingalamahesh/myrepo.git
+cd myrepo
+ls -al
+vi README.md
+cat README.md
+git status
+git add README.md
+git commit -m"     "
+git push
+
+ssh-keygen -t rsa -b 4096 -C "lmkreddy05@gmail.com"
+press "enter"
+$ ssh-keygen -t rsa -b 4096 -C "lmkreddy05@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/lingala/.ssh/id_rsa):
+Created directory '/c/Users/lingala/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/lingala/.ssh/id_rsa.
+Your public key has been saved in /c/Users/lingala/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:uMLMoFQWW0gS6YfQFAWS5b44XRIHYYsIFV85NOpXDlA lmkreddy05@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|oO#O++E.         |
+|=*o=++o.         |
+|= =++ ...        |
+| +o=   =         |
+| .= o o S        |
+|.+ O . .         |
+|+ o = .          |
+| .   .           |
+|                 |
++----[SHA256]-----+
+ 
+
+eval "$(ssh-agent -s)"
+Agent pid 14840
+
+ ssh-add /c/Users/lingala/.ssh/id_rsa
+Identity added: /c/Users/lingala/.ssh/id_rsa (/c/Users/lingala/.ssh/id_rsa)
+
+ cat  ssh-add /c/Users/lingala/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDj5ofskbTM7gUyMmmi70bnaPL1A5HdoEhmdqvatSe9PR/Wv0xTJ1cQoAaANqAP5NQ3hD17pW4s9cRh3DLKknyelOW1F1vzqGI+NtE7OMcbnk1VVac1CIZ0pmpvNdTLcfVNY1E15uwPAP4Vqtu0d2oC25VMhxzy/oXHJ2uETNyj7CqnqEDG18LkTTkhBEhCypPBdwVN8muMWzQva79CZa+TlYtmOZsjSsAQV2KqnOiMUwLnTlxUceusXdChQNGlSGMyQQJ8QGa4PvI7VJdmvnZCH/VbOd5jHqUA106GUkP/BVsqPCuq77sQzQWClFBxPE9liafdlxY7Sg1ZJTUMnlv/3gl42FDdDhbsXr+MoK40QYOuPRslIxYC8ao1sSVWYD1HhmBoLbBvmFzBfKV6PdarrwfkAcOJnXzWIpUsNdFo9p/Hl5/moPJnLtpWOkTZHeeSzdhR1Sh6Gal7yBdfZECq38Mp1tF7vPdHgeVwE78UGpCzQI+2O1wZpXg2neG5dO/8zb8b32ykjEmY7/Dtv3aHmF9byxiahVNhiUSbv3/WsZ9f/FN4WmgTTK8GutDMcP+JN9Ok1iHVMobVWun54RHvc+4d0+mKm4GgmtTm1qa/OAZoyXpUuST99d5KxZ0pnmJq6TNXk/CtuSVc9vFmpah8uL5X7NOo6k+dTrVjug/seQ== lmkreddy05@gmail.com
+
+ssh -T git@github.com  and for  ssh -T git@bitbucket.com
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+Hi lingalamahesh! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+
+
+
+
+ (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+ (use "git reset HEAD <file>..." to unstage)
+(use "git push" to publish your local commits)
+
+
+
+ echo "message " > text ( to add the text file )
+ rm -f text( to remove the text file)
+
+
+echo "# lingala" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:lingalamahesh/lingala.git
+git push -u origin master
+
+ git  log
+commit cdfacc0881e3deb5cf59af772c3664340c7a1daf (HEAD -> master)
+Author: lingalamahesh <lmkreddy05@gamil.com>
+Date:   Mon Jul 10 17:01:33 2017 +0530
+
+    i am added mydoc.doc to repo
+ git  log -p
+commit 79f8f9ebf0fb3cbd804addfe26049936bf22e7d5 (HEAD -> master, origin/master,                                                                                                                 origin/HEAD)
+Author: lingalamahesh <lmkreddy05@gamil.com>
+Date:   Fri Jul 7 18:30:52 2017 +0530
+
+    welcome to my repo
+
+diff --git a/README.md b/README.md
+index 45a85d7..8d75eed 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,4 @@
+ # myrepo
+ mygithub
+ ravi shankar is one of the best prof in the world
++mani is also an great prof in the world
+
+commit 7ee10d8b7682875d1533da90bd0b526108110033
+Author: lingalamahesh <lmkreddy05@gamil.com>
+Date:   Fri Jul 7 17:46:14 2017 +0530
+
+    This is my new repo
+
+commit 79f8f9ebf0fb3cbd804addfe26049936bf22e7d5 (HEAD -> master, origin/master,
+commit 79f8f9ebf0fb3cbd804addfe26049936bf22e7d5 (HEAD -> master, origin/master,
+commit 79f8f9ebf0fb3cbd804addfe26049936bf22e7d5 (HEAD -> master, origin/master,
+origin/HEAD)
+Author: lingalamahesh <lmkreddy05@gamil.com>
+Date:   Fri Jul 7 18:30:52 2017 +0530
+
+    welcome to my repo
+
+diff --git a/README.md b/README.md
+index 45a85d7..8d75eed 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,4 @@
+ # myrepo
+ mygithub
+ ravi shankar is one of the best prof in the world
++mani is also an great prof in the world
+commit 79f8f9ebf0fb3cbd804addfe26049936bf22e7d5 (HEAD -> master, origin/master,
+origin/HEAD)
+Author: lingalamahesh <lmkreddy05@gamil.com>
+Date:   Fri Jul 7 18:30:52 2017 +0530
+
+    welcome to my repo
+
+diff --git a/README.md b/README.md
+index 45a85d7..8d75eed 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,4 @@
+ # myrepo
+ mygithub
+ ravi shankar is one of the best prof in the world
++mani is also an great prof in the world
+
+commit 7ee10d8b7682875d1533da90bd0b526108110033
+Author: lingalamahesh <lmkreddy05@gamil.com>
+Date:   Fri Jul 7 17:46:14 2017 +0530
+
+    This is my new repo
+
+diff --git a/README.md b/README.md
+index c5cbe1a..45a85d7 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,3 @@
+ # myrepo
+ mygithub
++ravi shankar is one of the best prof in the world
+
+commit b1d55271d7f03d8e46706bdd4f54749732ba0297
+Author: lingalamahesh <lmkreddy05@gmail.com>
+Date:   Fri Jul 7 17:24:00 2017 +0530
+
+    Initial commit
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..c5cbe1a
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,2 @@
++# myrepo
++mygithub
+(END)
+
+
+git log --pretty=format:%h or %an or %ar or %s
+
+%h abbrivated commit hos
+%an author name
+%ar author data/relative 
+%s subject
+
+ git log --pretty=format:"%h %an %ar %s" --graph: give you ascii O/P
+
+git log 
+git log -p
+git  log --stat
+git  log --pretty
+git log --pretty=oneline
+git  log --pretty=full
+git  log --pretty=short
+git  log --pretty=fuller
+
+git add text1 text2
+git commit -m "add text1 and text 2"
+git tag -a V1  73ec49a (adding version) 
+git show V1 (to display version)
+ 
+git commit --amend
+git reset HEAD <filename>
+git .ignore
+git checkout
+git branch test
+git branch
+* master
+  test
+git checkout test
+ echo 'hari is linux expert' > hari.doc
+  ls
+  git log
+  git add hari.doc
+  git status
+  git commit -m "hari doc"
+  git log
+  git checkout master
+  git log
+  git merge test
+  git log
+  git branch -d test
+  git branch
+  git log
+git branch -v
+git checkout -b
+
+
+
+
