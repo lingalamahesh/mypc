@@ -19,6 +19,19 @@ find /var/www -type d -exec chmod 2775 {} +
 find /var/www -type f -exec chmod 0664 {} +
 echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
 
+#!/bin/bash
+yum update -y
+amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+yum install -y httpd mariadb-server
+systemctl start httpd
+systemctl enable httpd
+usermod -a -G apache ec2-user
+chown -R ec2-user:apache /var/www
+chmod 2775 /var/www
+find /var/www -type d -exec chmod 2775 {} \;
+find /var/www -type f -exec chmod 0664 {} \;
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+
 Refer this this link for Running Commands on Your Linux Instance at Launch
 http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
 
@@ -54,3 +67,50 @@ sudo sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 sudo service sshd restart
 sudo echo 'root:password' | chpasswd
+
+BASH SCRIPT (http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
+
+Traditional hello world script
+           #!/bin/bash          
+          echo Hello World 
+          
+A very simple backup script
+         #!/bin/bash          
+        tar -cZf /var/my-backup.tgz /home/me/
+       
+Sample: A very simple backup script (little bit better)
+            #!/bin/bash          
+           OF=/var/my-backup-$(date +%Y%m%d).tgz
+           tar -cZf $OF /home/me/
+          
+Local variables
+Local variables can be created by using the keyword local.
+
+                 #!/bin/bash
+                HELLO=Hello 
+                function hello {
+                        local HELLO=World
+                        echo $HELLO
+                }
+                echo $HELLO
+                hello
+                echo $HELLO
+              
+Using the command line
+           #!/bin/bash        
+          if [ -z "$1" ]; then 
+              echo usage: $0 directory
+              exit
+          fi
+          SRCD=$1
+          TGTD="/var/backups/"
+          OF=home-$(date +%Y%m%d).tgz
+          tar -cZf $TGTD$OF $SRCD
+          
+Sample: A very simple backup script (little bit better)
+             #!/bin/bash          
+            SRCD="/home/"
+            TGTD="/var/backups/"
+            OF=home-$(date +%Y%m%d).tgz
+            tar -cZf $TGTD$OF $SRCD
+
